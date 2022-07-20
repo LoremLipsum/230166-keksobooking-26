@@ -8,7 +8,7 @@ const getRandomPositiveInteger = (a, b) => {
   return Math.floor(result);
 };
 
-function getRandomFloat (a, b, size = 5) {
+const getRandomFloat = (a, b, size = 5) => {
   const lower = Math.min(Math.abs(a), Math.abs(b));
   const upper = Math.max(Math.abs(a), Math.abs(b));
   const result = Math.random() * (upper - lower + 1) + lower;
@@ -16,40 +16,48 @@ function getRandomFloat (a, b, size = 5) {
   return result.toFixed(size);
 };
 
-const checkLength = (string, len = 10) => {
-  return string.length <= len;
-};
+const checkLength = (string, len = 10) => string.length <= len;
 
-const getRandomArrayElement = (elements) => {
-  return elements[getRandomPositiveInteger(0, elements.length - 1)];
-};
+const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
-function chunkArray(array, chunkSize) {
-  const result = [];
+const chunkArray = (items, chunkSize) => {
+  const chunks = [];
 
-  for (let i = 0; i < array.length; i += chunkSize) {
-    result.push(array.slice(i, i + chunkSize));
-  }
-  return result;
-}
-
-function getRandomSet(min, max, size) {
-  const res = new Set();
-
-  while (res.size < size) {
-    res.add(getRandomPositiveInteger(min, max));
+  for (let i = 0; i < items.length; i += chunkSize) {
+    chunks.push(items.slice(i, i + chunkSize));
   }
 
-  return res;
-}
+  return chunks;
+};
 
-function debounce(callback, timeoutDelay) {
+const getRandomSet = (min, max, size) => {
+  const items = new Set();
+
+  while (items.size < size) {
+    items.add(getRandomPositiveInteger(min, max));
+  }
+
+  return items;
+};
+
+const getRandomArray = (items, size) => {
+  const arr = getRandomSet(0, items.length - 1, size);
+  const randomItems = [];
+
+  arr.forEach((index) => {
+    randomItems.push(items[index]);
+  });
+
+  return randomItems;
+};
+
+const debounce = (callback, timeoutDelay) => {
   let timeoutId;
   return (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
   };
-}
+};
 
 export {
   getRandomPositiveInteger,
@@ -59,5 +67,6 @@ export {
   isEscapeKey,
   chunkArray,
   getRandomSet,
+  getRandomArray,
   debounce,
 };

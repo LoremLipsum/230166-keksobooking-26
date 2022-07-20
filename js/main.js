@@ -1,4 +1,10 @@
-import { generateUsers } from './data.js';
+// import { generateAds } from './data.js';
+// import { renderAds } from './render-ads.js';
+import { disactivatedAdForm, disactivatedFiltresForm } from './form.js';
 
-const users = generateUsers();
-console.log(users);
+// const ads = generateAds();
+// renderAds(ads[0]);
+
+disactivatedAdForm();
+disactivatedFiltresForm();
+

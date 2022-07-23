@@ -6,7 +6,7 @@ const TipesLocal = {
   hotel: 'Отель'
 };
 
-const createAd = ({user, offer}) => {
+const createAd = ({author, offer}) => {
   const templateFragment = document.querySelector('#card').content;
   const template = templateFragment.querySelector('.popup');
   const card = template.cloneNode(true);
@@ -20,7 +20,7 @@ const createAd = ({user, offer}) => {
   card.querySelector('.popup__type').textContent = TipesLocal[offer.type];
   card.querySelector('.popup__text--capacity').textContent = `${offer.rooms} комнаты для ${offer.guests} гостей`;
   card.querySelector('.popup__text--time').textContent = `Заезд после ${offer.checkin}, выезд до ${offer.checkout}`;
-  card.querySelector('.popup__avatar').src = user.avatar;
+  card.querySelector('.popup__avatar').src = author.avatar;
 
   features.innerHTML = '';
   photos.innerHTML = '';

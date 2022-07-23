@@ -1,3 +1,4 @@
+import { createAd } from './create-ad.js';
 
 // const marker = L.marker(
 //   {
@@ -107,6 +108,8 @@ const createPins = (ads) => {
     iconAnchor: [26, 26],
   });
 
+  const markerGroup = L.layerGroup().addTo(map);
+
   ads.forEach((ad) => {
     const marker = L.marker({
       lat: ad.location.lat,
@@ -115,11 +118,10 @@ const createPins = (ads) => {
       icon: pinIcon
     });
 
-    marker.addTo(map);
+    marker
+      .addTo(markerGroup)
+      .bindPopup(createAd(ad));
   });
-
-
-
 
 };
 

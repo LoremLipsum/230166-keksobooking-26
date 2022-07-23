@@ -1,22 +1,5 @@
-import { activatedAdForm, activatedFiltresForm } from './form.js';
-
 const resetButton = document.querySelector('#reset');
 
-// const map = L.map('map-canvas')
-//   .on('load', () => {
-//     console.log('Карта инициализирована');
-//   })
-//   .setView({
-//     lat: 35.681729,
-//     lng: 139.753927,
-//   }, 10);
-
-// L.tileLayer(
-//   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-//   {
-//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-//   },
-// ).addTo(map);
 
 // const mainPinIcon = L.icon({
 //   iconUrl: './img/pin.svg',
@@ -38,7 +21,21 @@ const resetButton = document.querySelector('#reset');
 // marker.on('moveend', (evt) => {
 //   console.log(evt.target.getLatLng());
 // });
+// const map = L.map('map-canvas')
+//   .on('load', () => {
+//     console.log('Карта инициализирована');
+//   })
+//   .setView({
+//     lat: 35.681729,
+//     lng: 139.753927,
+//   }, 10);
 
+// L.tileLayer(
+//   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+//   {
+//     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+//   },
+// ).addTo(map);
 // resetButton.addEventListener('click', () => {
 //   mainPinMarker.setLatLng({
 //     lat: 59.96831,
@@ -90,17 +87,22 @@ const resetButton = document.querySelector('#reset');
 
 
 const createPins = () => {
-
-
-
   const map = L.map('map-canvas')
-  //   .on('load', () => {
-  //     console.log('Карта инициализирована');
-  //   })
-  //   .setView({
-  //     lat: 35.681729,
-  //     lng: 139.753927,
-  //   }, 10);
-}
+    .on('load', () => {
+      console.log('Карта инициализирована');
+    })
+    .setView({
+      lat: 35.681729,
+      lng: 139.753927,
+    }, 10);
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    },
+  ).addTo(map);
+
+};
 
 export { createPins };

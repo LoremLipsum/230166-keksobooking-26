@@ -103,12 +103,20 @@ const createPins = (ads) => {
   });
 
   const mainPinIcon = L.icon({
-    iconUrl: './img/pin.svg',
+    iconUrl: './img/main-pin.svg',
     iconSize: [52, 52],
     iconAnchor: [26, 26],
   });
 
   const markerGroup = L.layerGroup().addTo(map);
+  const mainMarkerGroup = L.layerGroup().addTo(map);
+
+  const mainMarker = L.marker({
+    lat: 35.681729,
+    lng: 139.753927,
+  }, {
+    icon: mainPinIcon
+  });
 
   ads.forEach((ad) => {
     const marker = L.marker({
@@ -122,6 +130,8 @@ const createPins = (ads) => {
       .addTo(markerGroup)
       .bindPopup(createAd(ad));
   });
+
+  mainMarker.addTo(mainMarkerGroup);
 
 };
 

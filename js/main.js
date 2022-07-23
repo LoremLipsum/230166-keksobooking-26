@@ -6,7 +6,10 @@ import {
   activatedFiltresForm
 } from './form.js';
 import './validate.js';
-import { createPins } from './map.js';
+import {
+  createPins,
+  createMainPin
+} from './map.js';
 import { showError } from './show-error.js';
 
 disactivatedAdForm();
@@ -18,6 +21,7 @@ getData(
     activatedAdForm();
     activatedFiltresForm();
     createPins(pins);
+    createMainPin();
     console.log(pins);
   },
   (error) => {

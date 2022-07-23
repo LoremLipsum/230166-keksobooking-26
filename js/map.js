@@ -1,11 +1,3 @@
-const resetButton = document.querySelector('#reset');
-
-
-// const mainPinIcon = L.icon({
-//   iconUrl: './img/pin.svg',
-//   iconSize: [40, 40],
-//   iconAnchor: [20, 20],
-// });
 
 // const marker = L.marker(
 //   {
@@ -86,7 +78,7 @@ const resetButton = document.querySelector('#reset');
 // });
 
 
-const createPins = () => {
+const createPins = (ads) => {
   const map = L.map('map-canvas')
     .on('load', () => {
       console.log('Карта инициализирована');
@@ -102,6 +94,32 @@ const createPins = () => {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     },
   ).addTo(map);
+
+  const pinIcon = L.icon({
+    iconUrl: './img/pin.svg',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+  });
+
+  const mainPinIcon = L.icon({
+    iconUrl: './img/pin.svg',
+    iconSize: [52, 52],
+    iconAnchor: [26, 26],
+  });
+
+  ads.forEach((ad) => {
+    const marker = L.marker({
+      lat: ad.location.lat,
+      lng: ad.location.lng
+    }, {
+      icon: pinIcon
+    });
+
+    marker.addTo(map);
+  });
+
+
+
 
 };
 

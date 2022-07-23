@@ -13,15 +13,16 @@ disactivatedAdForm();
 disactivatedFiltresForm();
 
 getData(
-  'https://26.javascript.pages.academy/keksobooking/dat',
+  'https://26.javascript.pages.academy/keksobooking/data',
   (pins) => {
     activatedAdForm();
     activatedFiltresForm();
     createPins(pins);
+    console.log(pins);
   },
   (error) => {
     showError(error);
   }
 );
-createPins();
+
 

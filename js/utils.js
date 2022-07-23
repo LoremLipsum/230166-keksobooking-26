@@ -1,5 +1,12 @@
 const isEscapeKey = (e) => e.key === 'Escape';
 
+const onEscKeydown = (e, callback) => {
+  if (isEscapeKey(e)) {
+    e.preventDefault();
+    callback();
+  }
+};
+
 const getRandomPositiveInteger = (a, b) => {
   const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
   const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
@@ -60,6 +67,7 @@ const debounce = (callback, timeoutDelay) => {
 };
 
 export {
+  onEscKeydown,
   getRandomPositiveInteger,
   checkLength,
   getRandomArrayElement,

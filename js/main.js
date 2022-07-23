@@ -1,28 +1,20 @@
 import { getData } from './api.js';
-import {
-  disactivatedAdForm,
-  disactivatedFiltresForm,
-  activatedAdForm,
-  activatedFiltresForm
-} from './form.js';
-import './validate.js';
-import {
-  createPins,
-  createMainPin
-} from './map.js';
+import { disactivatedAdForm, activatedAdForm, sendAdForm } from './ad-form.js';
+import { disactivatedFilterForm, activatedFilterForm } from './filter-form.js';
+import { createPins, createMainPin } from './map.js';
 import { showError } from './show-error.js';
 
 disactivatedAdForm();
-disactivatedFiltresForm();
+disactivatedFilterForm();
 
 getData(
   'https://26.javascript.pages.academy/keksobooking/data',
   (pins) => {
     activatedAdForm();
-    activatedFiltresForm();
+    activatedFilterForm();
     createPins(pins);
     createMainPin();
-    console.log(pins);
+    sendAdForm();
   },
   (error) => {
     showError(error);

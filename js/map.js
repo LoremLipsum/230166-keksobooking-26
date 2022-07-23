@@ -17,13 +17,13 @@ import { createAd } from './create-ad.js';
 // mainPinMarker.remove();
 
 const map = L.map('map-canvas')
-    .on('load', () => {
-      console.log('Карта инициализирована');
-    })
-    .setView({
-      lat: 35.681729,
-      lng: 139.753927,
-    }, 13);
+  .on('load', () => {
+    console.log('Карта инициализирована');
+  })
+  .setView({
+    lat: 35.681729,
+    lng: 139.753927,
+  }, 13);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
